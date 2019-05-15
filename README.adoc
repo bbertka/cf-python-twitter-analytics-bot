@@ -50,7 +50,7 @@ The Docker file contains dummy environment variables which need to be set before
 . Push the app into PCF using your own account and image name
 +
 $ 
-$ cf push -f docker-manifest.yml -o bbertka/ltc-twitter-sentiment-demo
+$ cf push -f docker-manifest.yml -o bbertka/cf-python-twitter-analytics-bot
 
 . Update the *docker-manifest.yml* with your own values for the following environment variables
 +
