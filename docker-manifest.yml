@@ -1,0 +1,17 @@
+---
+applications:
+- name: docker-app
+  host: docker-app-${random-word}
+  memory: 512M
+  instances: 1
+  env:
+    APP_KEY: HurUe9JJsPSLx1Uk
+    APP_SECRET: punTpAwGezlAYIBXXGsiZ73sjVE32O6t6u
+    OAUTH_TOKEN: 2927712kGEK5CXa6xoAEv8mVWe0SATek89Fu
+    OAUTH_TOKEN_SECRET: k45omldlgyhRH7qzThay1W8OAll
+    INCLUDE_TWITTER_HASH:  "#bitcoin"
+    MAX_CHART_SIZE: 5000
+    PROBABLE_RETWEET: 10
+    PROBABLE_FOLLOW: 40
+    PROBABLE_FAVORITE: 40
+    PROBABLE_DO_NOTHING: 10
