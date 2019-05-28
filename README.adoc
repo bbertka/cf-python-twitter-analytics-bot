@@ -2,7 +2,7 @@
 
 == Description
 
-This application analyzes and streams sentiment from a Twitter hash tag, and based on a weighted vector either retweets, favorites, follows, or does nothing after processing the tweet. This example's aim is to show the same exact code, and repository content can be used to push an app into cloud foundry, as well as build a Docker container, thereby showing that the Docker container is a redundant step which takes time for building updated versions of the app image.
+This application analyzes and streams sentiment from a Twitter hash tag, and based on a weighted vector either retweets, favorites, follows, or does nothing after processing the tweet. This example's aim is to show the same exact code, and repository content can be used to push an app into cloud foundry, as well as build a Docker container that is compatible with PKS..
 
 image:img/twitter-bot.png[]
 
