@@ -1,5 +1,5 @@
 python-cfworker
-requests==2.5.1
+requests==2.20.0
 Flask
 twython
 textblob
