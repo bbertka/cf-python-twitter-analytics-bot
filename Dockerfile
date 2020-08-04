@@ -44,4 +44,4 @@ WORKDIR /ltc-twitter-sentiment-demo
 
 # Set the default command to execute
 # when creating a new container
-CMD python -u bot.py
+CMD python3 -u bot.py
