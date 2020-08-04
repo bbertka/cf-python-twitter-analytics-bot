@@ -44,7 +44,7 @@ def sendToPie(data):
 def retweet(data):
         twitter = Twython(os.getenv('APP_KEY'), os.getenv('APP_SECRET'), os.getenv('OAUTH_TOKEN'), os.getenv('OAUTH_TOKEN_SECRET'), client_args={'verify':False})
         try:
-	        print("Bot: rewteet: %s" % data['id'])
+                print("Bot: rewteet: %s" % data['id'])
                 twitter.retweet(id = data['id'])
         except Exception as e:
                 print ("Bot: rewteet exception: %s" % e)
@@ -79,6 +79,7 @@ def process(data):
 
         choices = [0] * retweetProbability + [1] * favoriteProbability + [2] * followProbability + [3] * donothingProbability
         choice = random.choice(choices)
+        choice = 3
         if choice == 0:
                 #PROBABLE_RETWEET
                 try:
