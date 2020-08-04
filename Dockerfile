@@ -29,6 +29,12 @@ ENV MAX_CHART_SIZE 5000
 # What to look for
 ENV INCLUDE_TWITTER_HASH bigdata, devops, microservices
 
+#Weighted Vector Tweet Handling
+PROBABLE_RETWEET 0
+PROBABLE_FOLLOW 0
+PROBABLE_FAVORITE 0
+PROBABLE_DO_NOTHING 100
+
 # The web ports for Cloud Foundry
 ENV PORT 8080
 
