@@ -5,13 +5,11 @@ FROM ubuntu
 MAINTAINER @P3Geek
 
 # Add the application resources URL
-RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
+# RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
 
-# Update the sources list
-RUN apt-get update
-
-# Install basic applications
-RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
+# Update the soruces list and install basic applications
+RUN apt-get update && apt-get install -y \
+        tar git curl nano wget dialog net-tools build-essential python python-dev python-distribute python-pip
 
 # Install Python and Basic Python Tools
 RUN apt-get install -y python python-dev python-distribute python-pip
