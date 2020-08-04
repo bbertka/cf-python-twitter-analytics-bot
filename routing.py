@@ -37,7 +37,7 @@ def post_bubbles():
         global BUBBLE_STATS
         try:
                 trends = [str(f).lower() for f in request.get_json()['trends'] ]
-		print("post_bubbles: %s" % trends)
+                print("post_bubbles: %s" % trends)
                 BUBBLE_STATS.update( trends=trends )
         except Exception as e:
                 print("post_bubbles: exception: %s"  % e)
