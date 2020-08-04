@@ -1,5 +1,5 @@
 # Set the base image to Ubuntu
-FROM ubuntu
+FROM ubuntu:14.04
 
 # File Author / Maintainer
 MAINTAINER @P3Geek
@@ -9,12 +9,12 @@ MAINTAINER @P3Geek
 
 # Update the soruces list and install basic applications
 RUN apt-get update && apt-get install -y tar git curl nano wget dialog net-tools \
-        build-essential python python-dev python-distribute python3-pip
+        build-essential python python-dev python-distribute python-pip
 
 ADD . /ltc-twitter-sentiment-demo
 
 # Get pip to download and install requirements:
-RUN pip3 install -r /ltc-twitter-sentiment-demo/requirements.txt
+RUN pip install -r /ltc-twitter-sentiment-demo/requirements.txt
 
 #Environment (Keys are fake and are replaced at runtime)
 # Bot keys
