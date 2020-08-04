@@ -25,11 +25,11 @@ def sendToBubbles(data):
                 hashtags = [ tag['text'].encode('utf-8').lower() for tag in data['entities']['hashtags'] ]
 
                 if hashtags:
-                        print "sendToBubbles: %s" % repr(hashtags)
+                        print("sendToBubbles: %s" % repr(hashtags))
                         r = requests.post(url='http://0.0.0.0:%d/bubbles/post' % int(os.getenv('PORT')),
                                 data=json.dumps({'trends': hashtags }), headers={'Content-Type': 'application/json'})
         except Exception as e:
-                print 'Analysis error, found a problem parsing hashtag list: %s' % e
+                print('Analysis error, found a problem parsing hashtag list: %s' % e)
 
 
 def sendToPie(data):
@@ -39,26 +39,26 @@ def sendToPie(data):
                 r = requests.post(url='http://0.0.0.0:%d/pie/post' % int(os.getenv('PORT')),
                         data=json.dumps({'sentiment': sentiment }), headers={'Content-Type': 'application/json'})
         except Exception as e:
-                print 'Analysis error, found a problem parsing sentiment: %s' % e
+                print('Analysis error, found a problem parsing sentiment: %s' % e)
 
 def retweet(data):
         twitter = Twython(os.getenv('APP_KEY'), os.getenv('APP_SECRET'), os.getenv('OAUTH_TOKEN'), os.getenv('OAUTH_TOKEN_SECRET'), client_args={'verify':False})
         try:
-	        print "Bot: rewteet: %s" % data['id']
+	        print("Bot: rewteet: %s" % data['id'])
                 twitter.retweet(id = data['id'])
         except Exception as e:
-                print "Bot: rewteet exception: %s" % e
-                print "Bot: retweeted_status: %s" % data['retweeted_status']['id_str']
+                print ("Bot: rewteet exception: %s" % e)
+                print ("Bot: retweeted_status: %s" % data['retweeted_status']['id_str'])
                 twitter.retweet(id = data['retweeted_status']['id_str'])
 
 def favorite(data):
         twitter = Twython(os.getenv('APP_KEY'), os.getenv('APP_SECRET'), os.getenv('OAUTH_TOKEN'), os.getenv('OAUTH_TOKEN_SECRET'), client_args={'verify':False})
-        print "Bot: create_favorite: %s" % data['id']
+        print("Bot: create_favorite: %s" % data['id'])
         twitter.create_favorite( id=data['id'] )
 
 def follow(data):
         twitter = Twython(os.getenv('APP_KEY'), os.getenv('APP_SECRET'), os.getenv('OAUTH_TOKEN'), os.getenv('OAUTH_TOKEN_SECRET'), client_args={'verify':False})
-        print "Bot: follow: %s %s" % ( data['user']['id_str'], data['user']['screen_name'] )
+        print("Bot: follow: %s %s" % ( data['user']['id_str'], data['user']['screen_name'] ))
         twitter.create_friendship( user_id=data['user']['id_str'] )
 
 def populate(data):
@@ -67,9 +67,9 @@ def populate(data):
 
 def process(data):
         try:
-                print "Bot: DATA: %s" % data['text'].encode('utf-8')
+                print("Bot: DATA: %s" % data['text'].encode('utf-8'))
 	except Exception as e:
-                print "Bot: exception: %s" % e
+                print("Bot: exception: %s" % e)
         populate(data)
 
         retweetProbability = int(os.getenv("PROBABLE_RETWEET"))
@@ -84,19 +84,19 @@ def process(data):
                 try:
                         retweet(data)
                 except Exception as e:
-                        print "Bot: rewteet exception: %s" % e
+                        print("Bot: rewteet exception: %s" % e)
         elif choice == 1:
                 #PROBABLE_FAVORITE
                 try:
                         favorite(data)
                 except Exception as e:
-                        print "Bot: favorite exception: %s" % e
+                        print("Bot: favorite exception: %s" % e)
         elif choice == 2:
                 #PROBABLE_FOLLOW
                 try:
                         follow(data)
                 except Exception as e:
-                        print "Bot: follow exception: %s" % e
+                        print("Bot: follow exception: %s" % e)
         else:
                 #PROBABLE_DO_NOTHING
                 pass
