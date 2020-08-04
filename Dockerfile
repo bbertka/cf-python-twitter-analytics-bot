@@ -8,14 +8,11 @@ MAINTAINER @P3Geek
 # RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
 
 # Update the soruces list and install basic applications
-RUN apt-get update && apt-get install -y \
-        tar git curl nano wget dialog net-tools build-essential python python-dev python-distribute python-pip
-
-# Install Python and Basic Python Tools
-RUN apt-get install -y python python-dev python-distribute python-pip
+RUN apt-get install software-properties-common && apt-add-repository universe \
+    && apt-get update && apt-get install -y tar git curl nano wget dialog net-tools \
+        build-essential python python-dev python-distribute python-pip
 
 ADD . /ltc-twitter-sentiment-demo
-
 
 # Get pip to download and install requirements:
 RUN pip install -r /ltc-twitter-sentiment-demo/requirements.txt
