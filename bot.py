@@ -53,8 +53,8 @@ if __name__=='__main__':
                 worker.start()
                 streamRun()
 
-         except Exception as e:
+        except Exception as e:
                 print('Bot error, main exception: %s' % e)
                 worker.stop()
                 restartBot()
-         worker.stop()
+        worker.stop()
