@@ -7,14 +7,12 @@ MAINTAINER @P3Geek
 # Add the application resources URL
 # RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
 
-# Update the soruces list and install basic applications
-RUN apt-get update && apt-get install -y tar git curl nano wget dialog net-tools \
-        build-essential python python-dev python-distribute python3-pip
-
 ADD . /ltc-twitter-sentiment-demo
 
-# Get pip to download and install requirements:
-RUN pip-3.2 install -r /ltc-twitter-sentiment-demo/requirements.txt
+# Update the soruces list and install basic applications
+RUN apt-get update && apt-get install -y tar git curl nano wget dialog net-tools \
+        build-essential python python-dev python-distribute python3-pip \ 
+        &&  pip3 install -r /ltc-twitter-sentiment-demo/requirements.txt
 
 #Environment (Keys are fake and are replaced at runtime)
 # Bot keys
