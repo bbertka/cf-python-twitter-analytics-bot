@@ -24,8 +24,8 @@ class MyStreamer(TwythonStreamer):
                 bot_sleep()
 
 def bot_sleep():
-        print('Bot error: sleeping for 60 seconds. Zzzzzz....')
-        time.sleep(60)
+        print('Bot error: sleeping for 120 seconds. Zzzzzz....')
+        time.sleep(120)
         streamRun()
 
 def streamRun():
