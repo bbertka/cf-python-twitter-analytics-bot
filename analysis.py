@@ -117,19 +117,20 @@ class bubblestats:
                         self.trend_raw = []
                         self.trend_count = Counter()
                 else:
-			self.trend_raw.extend(trends)
-			self.trend_count = Counter( self.trend_raw )
-			top20 = self.trend_count.most_common(20)
-			self.trend_raw = []
-			for tag, num in top20:
-				for i in range(0, num):
-					self.trend_raw.append(tag)
-			self.trend_count = Counter( self.trend_raw )
+                        self.trend_raw.extend(trends)
+                        self.trend_count = Counter( self.trend_raw )
+                        top20 = self.trend_count.most_common(20)
+                        self.trend_raw = []
+                        for tag, num in top20:
+                                for i in range(0, num):
+                                        self.trend_raw.append(tag)
+                        self.trend_count = Counter( self.trend_raw )
 
 
         def add(self, trends=[]):
                 # this lets the bubble chart grow bigger
                 self.trend_count = Counter(trends) + self.trend_count
+
 
 class piestats:
         def __init__(self):
