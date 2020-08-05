@@ -68,7 +68,7 @@ def populate(data):
 def process(data):
         try:
                 print("Bot: DATA: %s" % data['text'].encode('utf-8'))
-	except Exception as e:
+        except Exception as e:
                 print("Bot: exception: %s" % e)
         populate(data)
 

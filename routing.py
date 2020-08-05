@@ -68,7 +68,6 @@ def pie_metric_counter():
         url = 'http://0.0.0.0:%d/metrics/field-value-counters/sentiment' % int(os.getenv('PORT'))
         return json.dumps({"name":"sentiment","links":[{"rel":"self","href": url}],"counts": PIE_STATS.sentiment_count })
 
-
 @worker.app.route('/metrics/field-value-counters')
 def field_counter():
         return ""
