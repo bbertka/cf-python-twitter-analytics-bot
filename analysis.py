@@ -1,9 +1,10 @@
 #!/usr/bin/python
-import requests, json, os, sys
+import requests, os, sys
 from textblob import TextBlob
 from collections import Counter
 from twython import Twython, TwythonError
 import random
+import simplejson as json
 
 requests.packages.urllib3.disable_warnings()
 

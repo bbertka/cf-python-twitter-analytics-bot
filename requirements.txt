@@ -3,3 +3,4 @@ requests==2.5.1
 Flask
 twython
 textblob
+simplejson
