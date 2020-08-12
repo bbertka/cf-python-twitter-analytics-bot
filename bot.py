@@ -1,6 +1,6 @@
 #!/usr/bin/python
 from twython import TwythonStreamer
-import time, os
+import time, os, sys
 from routing import worker
 import analysis
 import datetime
