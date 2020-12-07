@@ -39,10 +39,10 @@ applications:
     OAUTH_TOKEN_SECRET: JFEaeFGGDeSHg3VQcccdI8Pfj7ghvnj67dh
     INCLUDE_TWITTER_HASH: "#knative, #cloudfoundry, #springboot, @pivotal, @pivotalcf"
     MAX_CHART_SIZE: 5000
-    PROBABLE_RETWEET: 10
-    PROBABLE_FOLLOW: 20
-    PROBABLE_FAVORITE: 20
-    PROBABLE_DO_NOTHING: 50
+    PROBABLE_RETWEET: 5
+    PROBABLE_FOLLOW: 10
+    PROBABLE_FAVORITE: 10
+    PROBABLE_DO_NOTHING: 75
 ---------------------------------------------------------------------
 
 . Push the code into PCF using the updated manifest
