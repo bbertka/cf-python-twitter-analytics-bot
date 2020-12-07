@@ -70,10 +70,10 @@ ENV OAUTH_TOKEN 292erge771e-kxy3bhFTergergl2Kktyzu8ukzyikPScaesrfbuayqgq7gGW
 ENV OAUTH_TOKEN_SECRET JFEaeFGGDeSHg3VQcccdI8Pfj7ghvnj67dh
 ENV MAX_CHART_SIZE 5000
 ENV INCLUDE_TWITTER_HASH: "#knative, #cloudfoundry, #springboot, @pivotal, @pivotalcf"
-ENV PROBABLE_RETWEET: 10
-ENV PROBABLE_FOLLOW: 20
-ENV PROBABLE_FAVORITE: 20
-ENV PROBABLE_DO_NOTHING: 50
+ENV PROBABLE_RETWEET: 5
+ENV PROBABLE_FOLLOW: 10
+ENV PROBABLE_FAVORITE: 10
+ENV PROBABLE_DO_NOTHING: 75
 ---------------------------------------------------------------------
 
 . Restage the docker based app to pull in the environment changes
