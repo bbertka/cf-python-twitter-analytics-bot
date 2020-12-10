@@ -8,7 +8,7 @@ image:img/twitter-bot.png[]
 
 == Project SetUp
 
-To build you own Docker image from this demo it is recommended to create a DockerHub registry account, and create an automated build from a forked version of this repo.
+To build your own Docker image from this demo it is recommended to create a DockerHub registry account, and create an automated build from a forked version of this repo.
 
 . Obtain Twitter Application keys from https://apps.twitter.com
 . Fork this repo to your own GitHub account
