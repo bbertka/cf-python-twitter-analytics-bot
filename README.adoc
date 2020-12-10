@@ -80,5 +80,5 @@ ENV PROBABLE_DO_NOTHING: 75
 + 
 $ cf restage APP_NAME
 
-*Congratulations!* You have pushed a container agnostic app into PCF without having to modify the code for both cloud native PCF and Docker based image deployment!
+*Congratulations!* You have pushed a container agnostic app into PCF without having to modify the code for both cloud native PCF and Docker based image deployment.
 
