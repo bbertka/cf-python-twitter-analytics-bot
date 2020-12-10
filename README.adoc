@@ -76,9 +76,9 @@ ENV PROBABLE_FAVORITE: 10
 ENV PROBABLE_DO_NOTHING: 75
 ---------------------------------------------------------------------
 
-. Restage the docker based app to pull in the environment changes
+. Re-stage the docker based app to pull in the environment changes
 + 
-$ cf restage APP_NAME
+$ cf re-stage APP_NAME
 
 *Congratulations!* You have pushed a container agnostic app into PCF without having to modify the code for both cloud native PCF and Docker based image deployment.
 
