@@ -1,4 +1,4 @@
-= PCF & Docker -- Twitter Sentiment Dashboard
+= Twitter Sentiment Dashboard
 
 == Description
 
