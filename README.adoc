@@ -1,4 +1,4 @@
-= Twitter Sentiment Dashboard Demos
+= Twitter Sentiment Dashboard Demo
 
 == Description
 
