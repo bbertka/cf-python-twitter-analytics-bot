@@ -17,7 +17,7 @@ To build your own Docker image from this demo it is recommended to create a Dock
 
 == Execution
 
-Run this repo either as a standalone PCF app, or as a Docker image pushed to PCF or PKS.
+Run this repo either as a standalone PCF app, or as a Docker image pushed to your favorite platform
 
 === Cloud Foundry
 
