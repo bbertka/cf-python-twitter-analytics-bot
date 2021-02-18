@@ -4,6 +4,7 @@ from flask import Flask, request, redirect, url_for, send_from_directory
 import json, os, logging
 import cfworker
 import analysis
+import psutil
 
 BUBBLE_STATS = analysis.bubblestats()
 PIE_STATS = analysis.piestats()
@@ -71,6 +72,12 @@ def pie_metric_counter():
 @worker.app.route('/metrics/field-value-counters')
 def field_counter():
         return ""
+
+
+@worker.app.route('/metrics/diagnostics')
+def metric_diagnostics():
+        return json.dumps( {"cpu":psutil.cpu_percent(), "memory":psutil.virtual_memory().percent})
+
 
 #---------------------------------------------------------------
 #
