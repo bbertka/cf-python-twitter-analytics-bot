@@ -4,3 +4,4 @@ Flask
 twython
 textblob
 simplejson
+psutil
