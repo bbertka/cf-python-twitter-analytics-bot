@@ -78,6 +78,10 @@ def field_counter():
 def metric_diagnostics():
         return json.dumps( {"cpu":psutil.cpu_percent(), "memory":psutil.virtual_memory().percent})
 
+@worker.app.route('/webhook', methods=['POST'])
+def rundeck_webhook():
+	print(request.json) # Handle webhook request here
+	return Response(status=200)
 
 #---------------------------------------------------------------
 #
