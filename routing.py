@@ -80,8 +80,8 @@ def metric_diagnostics():
 
 @worker.app.route('/webhook', methods=['POST'])
 def rundeck_webhook():
-	data = request.form.to_dict(flat=False)
-	print(jsonify(data))
+	req_data = request.get_json(force=True)
+	print(req_data)
 	return Response(status=200)
 
 #---------------------------------------------------------------
