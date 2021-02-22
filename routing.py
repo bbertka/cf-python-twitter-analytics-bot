@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from flask import Flask, request, redirect, url_for, send_from_directory
+from flask import Flask, request, redirect, url_for, send_from_directory, jsonify
 import json, os, logging
 import cfworker
 import analysis
