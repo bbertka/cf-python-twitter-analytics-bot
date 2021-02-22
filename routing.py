@@ -80,9 +80,44 @@ def metric_diagnostics():
 
 @worker.app.route('/webhook', methods=['POST'])
 def rundeck_webhook():
-	req_data = request.get_json(force=True)
-	print(req_data)
-	return Response(status=200)
+	token = request.form.get('token', None)  # TODO: validate the token
+	command = request.form.get('command', None)
+	text = request.form.get('text', None)
+
+	# Validate the request parameters
+	if not token:  # or some other failure condition
+		abort(400)
+
+	# Use one of the following return statements
+	# 1. Return plain text
+	#return 'Simple plain response to the slash command received'
+
+	return jsonify({
+		# 'response_type': 'in_channel',
+		'text': 'More fleshed out response to the slash command',
+		'attachments': [
+			{
+				'fallback': 'Required plain-text summary of the attachment.',
+				'color': '#36a64f',
+				'pretext': 'Optional text above the attachment block',
+				'author_name': 'Bobby Tables',
+				'author_link': 'http://flickr.com/bobby/',
+				'author_icon': 'http://flickr.com/icons/bobby.jpg',
+				'title': 'Slack API Documentation',
+				'title_link': 'https://api.slack.com/',
+				'text': 'Optional text that appears within the attachment',
+				'fields': [
+						{
+						'title': 'Priority',
+						'value': 'High',
+						'short': False
+						}
+				],
+				'image_url': 'http://my-website.com/path/to/image.jpg',
+				'thumb_url': 'http://example.com/path/to/thumb.png'
+				}
+		]
+	})
 
 #---------------------------------------------------------------
 #
