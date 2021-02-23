@@ -84,7 +84,7 @@ def rundeck_webhook():
 	command = request.form.get('command', None)
 	text = request.form.get('text', None)
 
-        print("Webhook text: %s" % text)
+	print("Webhook text: %s" % text)
 
 	# Validate the request parameters
 	if not token:  # or some other failure condition
