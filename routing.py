@@ -86,7 +86,7 @@ def rundeck_webhook():
 	text = request.form.get('text', None)
 	print("Webhook text: %s" % text)
 	data = {i.split('=')[0]: i.split('=')[1] for i in text.split(', ') }
-	print data
+	print(data)
 	url = data.get('url')
 	task = data.get('task')
 	hostname = data.get('hostname')
