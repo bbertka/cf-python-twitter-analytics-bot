@@ -5,6 +5,7 @@ import json, os, logging
 import cfworker
 import analysis
 import psutil
+import requests
 
 BUBBLE_STATS = analysis.bubblestats()
 PIE_STATS = analysis.piestats()
@@ -83,43 +84,16 @@ def rundeck_webhook():
 	token = request.form.get('token', None)  # TODO: validate the token
 	command = request.form.get('command', None)
 	text = request.form.get('text', None)
-
 	print("Webhook text: %s" % text)
-
-	# Validate the request parameters
-	if not token:  # or some other failure condition
-		abort(400)
-
-	# Use one of the following return statements
-	# 1. Return plain text
-	#return 'Simple plain response to the slash command received'
-
-	return jsonify({
-		# 'response_type': 'in_channel',
-		'text': 'More fleshed out response to the slash command',
-		'attachments': [
-			{
-				'fallback': 'Required plain-text summary of the attachment.',
-				'color': '#36a64f',
-				'pretext': 'Optional text above the attachment block',
-				'author_name': 'Bobby Tables',
-				'author_link': 'http://flickr.com/bobby/',
-				'author_icon': 'http://flickr.com/icons/bobby.jpg',
-				'title': 'Slack API Documentation',
-				'title_link': 'https://api.slack.com/',
-				'text': 'Optional text that appears within the attachment',
-				'fields': [
-						{
-						'title': 'Priority',
-						'value': 'High',
-						'short': False
-						}
-				],
-				'image_url': 'http://my-website.com/path/to/image.jpg',
-				'thumb_url': 'http://example.com/path/to/thumb.png'
-				}
-		]
-	})
+	data = {i.split('=')[0]: i.split('=')[1] for i in text.split(', ') }
+	print data
+	url = data.get('url')
+	task = data.get('task')
+	hostname = data.get('hostname')
+	headers = {'content-type': 'application/json'}
+	json_data = {"url":url,"task":task,"hostname":hostname}
+	r = requests.post(url=url, headers=headers, data=json.dumps(json_data))
+	return r
 
 #---------------------------------------------------------------
 #
