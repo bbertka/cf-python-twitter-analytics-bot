@@ -93,7 +93,7 @@ def rundeck_webhook():
 	headers = {'content-type': 'application/json'}
 	json_data = {"url":url,"task":task,"hostname":hostname}
 	r = requests.post(url=url, headers=headers, data=json.dumps(json_data))
-	return r
+	return data
 
 #---------------------------------------------------------------
 #
