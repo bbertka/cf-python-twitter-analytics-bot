@@ -87,7 +87,8 @@ def rundeck_webhook():
 	print("Webhook text: %s" % text)
 	data = {i.split('=')[0]: i.split('=')[1] for i in text.split(', ') }
 	print(data)
-	url = data.get('url')
+	#url = data.get('url')
+	url = "https://dev.myrundeck.com/api/38/webhook/cdFlSPxZ5qu7GCue1qUPlw8uUd44s0lt#Slack_Webhook"
 	task = data.get('task')
 	hostname = data.get('hostname')
 	headers = {'content-type': 'application/json'}
